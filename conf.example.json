@@ -1,0 +1,10 @@
+{
+    "login": "your-stackoverflow-email@example.com",
+    "password": "your slackoverflow password",
+
+    "subject": "[CRON] StackOverflow fanatic badge report",
+    "from": "postmaster@xxxxx.mailgun.org",
+    "to": "your-email@example.com",
+    "mailgun_api_key": "key-xxxxx",
+    "mailgun_domain": "xxxxx.mailgun.org"
+}
