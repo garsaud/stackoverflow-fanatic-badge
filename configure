@@ -1,0 +1,22 @@
+#!/bin/bash
+
+read -p "Stackoverflow login: " login
+
+read -p "Stackoverflow password: " password
+
+read -p "Mailgun api key: " mailgun_api_key
+
+read -p "Mailgun domain: " mailgun_domain
+
+read -p "Notify from address: " from
+
+read -p "Notify to: " to
+
+read -e -p "Notification subject: " \
+    -i "StackOverflow fanatic badge report" subject
+
+printf '{"login":"%s","password":"%s","subject":"%s","from":"%s","to":"%s","mailgun_api_key":"%s","mailgun_domain":"%s"}' \
+    $login $password $mailgun_api_key $mailgun_domain $from $to $subject \
+    > conf.json
+
+echo "conf.json generated."
