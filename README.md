@@ -30,6 +30,8 @@ docker run --rm -it -v ${PWD}/conf.json:/conf.json \
     garsaud/stack-overflow-fanatic-badge configure
 ```
 
+![](https://user-images.githubusercontent.com/3667366/54071538-1785ef00-426e-11e9-8d98-37b24778df0e.png)
+
 Then launch the bot:
 
 ```bash
