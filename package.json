@@ -1,0 +1,13 @@
+{
+  "name": "stackoverflow-fanatic-badge",
+  "version": "1.0.0",
+  "description": "An automated way to get the fanatic badge 🥇",
+  "main": "app.js",
+  "repository": "github:garsaud/stackoverflow-fanatic-badge",
+  "author": "Cyril Garsaud <cyril.garsaud@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mailgun-js": "^0.22.0",
+    "puppeteer": "1.11.0"
+  }
+}

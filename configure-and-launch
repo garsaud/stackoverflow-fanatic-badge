@@ -42,8 +42,8 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-printf '{"login":"%s","password":"%s","subject":"%s","from":"%s","to":"%s","mailgun_api_key":"%s","mailgun_domain":"%s"}' \
-    "$login" "$password" "$mailgun_api_key" "$mailgun_domain" "$from" "$to" "$subject"
+printf '{"login":"%s","password":"%s","mailgun_api_key":"%s","mailgun_domain":"%s","from":"%s","to":"%s","subject":"%s"}' \
+    "$login" "$password" "$mailgun_api_key" "$mailgun_domain" "$from" "$to" "$subject" \
     > conf.json
 
 echo "conf.json generated."

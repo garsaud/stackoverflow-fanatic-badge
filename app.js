@@ -26,7 +26,13 @@ function notify(body) {
 }
 
 async function crawl() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+        ]
+    });
     const page = await browser.newPage();
 
     console.log(`Loading ${LOGIN_PAGE}`);

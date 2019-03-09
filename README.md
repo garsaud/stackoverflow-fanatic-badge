@@ -25,14 +25,15 @@ docker run -d -v path/to/conf.json:/conf.json \
 Build the config file answering questions:
 
 ```bash
-docker run --rm -it -v ~/conf.json:/conf.json \
+touch conf.json
+docker run --rm -it -v ${PWD}/conf.json:/conf.json \
     garsaud/stack-overflow-fanatic-badge configure
 ```
 
 Then launch the bot:
 
 ```bash
-docker run -d -v ~/conf.json:/conf.json \
+docker run -d -v ${PWD}/conf.json:/conf.json \
     --name fanatic-bot \
     garsaud/stack-overflow-fanatic-badge
 ```
