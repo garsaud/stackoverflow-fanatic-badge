@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#!/bin/bash
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --login)
+        login=$2
+        shift
+        shift
+        ;;
+        --password)
+        password=$2
+        shift
+        shift
+        ;;
+        --mailgun_api_key)
+        mailgun_api_key=$2
+        shift
+        shift
+        ;;
+        --mailgun_domain)
+        mailgun_domain=$2
+        shift
+        shift
+        ;;
+        --from)
+        from=$2
+        shift
+        shift
+        ;;
+        --to)
+        to=$2
+        shift
+        shift
+        ;;
+        --subject)
+        subject=$2
+        shift
+        shift
+        ;;
+    esac
+done
+
+printf '{"login":"%s","password":"%s","subject":"%s","from":"%s","to":"%s","mailgun_api_key":"%s","mailgun_domain":"%s"}' \
+    "$login" "$password" "$mailgun_api_key" "$mailgun_domain" "$from" "$to" "$subject"
+    > conf.json
+
+echo "conf.json generated."
+
+exec node app.js
