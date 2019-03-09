@@ -18,7 +18,7 @@ into the container:
 ```bash
 docker run -d -v path/to/conf.json:/conf.json \
     --name fanatic-bot \
-    garsaud/stack-overflow-fanatic-badge
+    garsaud/stackoverflow-fanatic-badge
 ```
 
 ## Through the interactive mode
@@ -27,7 +27,7 @@ Build the config file answering questions:
 ```bash
 touch conf.json
 docker run --rm -it -v ${PWD}/conf.json:/conf.json \
-    garsaud/stack-overflow-fanatic-badge configure
+    garsaud/stackoverflow-fanatic-badge configure
 ```
 
 ![](https://user-images.githubusercontent.com/3667366/54071538-1785ef00-426e-11e9-8d98-37b24778df0e.png)
@@ -37,7 +37,7 @@ Then launch the bot:
 ```bash
 docker run -d -v ${PWD}/conf.json:/conf.json \
     --name fanatic-bot \
-    garsaud/stack-overflow-fanatic-badge
+    garsaud/stackoverflow-fanatic-badge
 ```
 
 ## With inline arguments
@@ -45,7 +45,7 @@ If you don’t mind inline passwords, it is possible to configure and launch the
 
 ```bash
 docker run -d -it --name fanatic-bot \
-    garsaud/stack-overflow-fanatic-badge configure-and-launch \
+    garsaud/stackoverflow-fanatic-badge configure-and-launch \
     --login "your-stackoverflow-email@example.com" \
     --password "your slackoverflow password" \
     --mailgun_api_key "key-xxxxx" \
