@@ -1,6 +1,4 @@
-#!/bin/bash
-
-#!/bin/bash
+#!/usr/bin/env bash
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -24,6 +22,11 @@ while [[ $# -gt 0 ]]; do
         shift
         shift
         ;;
+        --mailgun_eu_domain)
+        mailgun_eu_domain=$2
+        shift
+        shift
+        ;;
         --from)
         from=$2
         shift
@@ -42,8 +45,8 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-printf '{"login":"%s","password":"%s","mailgun_api_key":"%s","mailgun_domain":"%s","from":"%s","to":"%s","subject":"%s"}' \
-    "$login" "$password" "$mailgun_api_key" "$mailgun_domain" "$from" "$to" "$subject" \
+printf '{"login":"%s","password":"%s","mailgun_api_key":"%s","mailgun_domain":"%s","mailgun_eu_domain":"%s","from":"%s","to":"%s","subject":"%s"}' \
+    "$login" "$password" "$mailgun_api_key" "$mailgun_domain" "$mailgun_eu_domain" "$from" "$to" "$subject" \
     > conf.json
 
 echo "conf.json generated."

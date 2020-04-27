@@ -6,6 +6,7 @@ const LOGIN_PAGE = 'https://stackoverflow.com/users/login';
 const PROFILE_PAGE = 'https://stackoverflow.com/users/current';
 
 mailgun = Mailgun({
+    host: (conf.mailgun_eu_domain == "y") ? "api.eu.mailgun.net" : "api.mailgun.net",
     apiKey: conf.mailgun_api_key,
     domain: conf.mailgun_domain
 });
