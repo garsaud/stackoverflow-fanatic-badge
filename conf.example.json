@@ -6,5 +6,6 @@
     "from": "postmaster@xxxxx.mailgun.org",
     "to": "your-email@example.com",
     "mailgun_api_key": "key-xxxxx",
-    "mailgun_domain": "xxxxx.mailgun.org"
+    "mailgun_domain": "xxxxx.mailgun.org",
+    "mailgun_eu_domain": "n"
 }

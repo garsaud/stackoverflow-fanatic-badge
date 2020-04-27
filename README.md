@@ -21,6 +21,8 @@ docker run -d -v path/to/conf.json:/conf.json \
     garsaud/stackoverflow-fanatic-badge
 ```
 
+**Mailgun domain setup**: If you use an [EU domain](https://www.mailgun.com/blog/we-have-a-new-region-in-europe-yall/), please set `mailgun_eu_domain` to `y`.
+
 ## Through the interactive mode
 Build the config file answering questions:
 
@@ -50,6 +52,7 @@ docker run -d -it --name fanatic-bot \
     --password "your slackoverflow password" \
     --mailgun_api_key "key-xxxxx" \
     --mailgun_domain "xxxxx.mailgun.org" \
+    --mailgun_eu_domain "n" \
     --from "postmaster@xxxxx.mailgun.org" \
     --to "your-email@example.com" \
     --subject "[CRON] StackOverflow fanatic badge report"
