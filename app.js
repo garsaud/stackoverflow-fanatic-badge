@@ -36,25 +36,42 @@ async function crawl() {
     const page = await browser.newPage();
 
     console.log(`Loading ${LOGIN_PAGE}`);
-    await page.goto(LOGIN_PAGE);
+    await page.goto(LOGIN_PAGE).then(() => {
+        console.log(' -> success!')
+    });
 
     console.log('Filling login form with credentials');
     await page.type('#email', conf.login);
     await page.type('#password', conf.password);
-    await page.click('#submit-button');
+    await page.click('#submit-button').then(() => {
+        console.log(' -> success!')
+    });
 
     console.log('Loading profile page');
-    await page.goto(PROFILE_PAGE);
+    await page.goto(PROFILE_PAGE).then(() => {
+        console.log(' -> success!')
+    });
 
-    console.log('Grabbing stats');
-    await page.waitForSelector(statsSelector = '#top-cards span.fs-caption');
-    const stats = await page.evaluate(
+    try {
+        console.log('Grabbing stats');
+        await page.waitForSelector(statsSelector = '#top-cards span.fs-caption', { timeout: 5000 })
+              .then(() => {
+                  console.log(' -> success!')
+              });
+
+        const stats = await page.evaluate(
         statsSelector => document.querySelector(statsSelector).textContent,
         statsSelector
     );
 
     console.log(`Sending stats: ${stats}`);
     notify(`Logged in for ${text} consecutive days`)
+
+    } catch(e) {
+        console.log(' -> failed. Could not fetch the stats. Please check days left manually.')
+        notify(`Login succeeded. Could not fetch stats for consecutive days.`)
+    }
+    
 
     console.log('Closing browser');
     await browser.close();
