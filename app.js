@@ -69,7 +69,7 @@ async function crawl() {
     );
 
     console.log(`Sending stats: ${stats}`);
-    notify(`Logged in for ${text} consecutive days`)
+    notify(`Logged in for ${stats} consecutive days`)
 
     } catch(e) {
         console.log(' -> failed. Could not fetch the stats. Please check days left manually.')
