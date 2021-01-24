@@ -44,7 +44,10 @@ async function crawl() {
     console.log('Filling login form with credentials');
     await page.type('#email', conf.login);
     await page.type('#password', conf.password);
-    await page.click('#submit-button').then(() => {
+    await Promise.all([
+        page.click('#submit-button'),
+        page.waitForNavigation({waitUntil: 'networkidle0'})
+    ]).then(() => {
         console.log(' -> success!')
     });
 
