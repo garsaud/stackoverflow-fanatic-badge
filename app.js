@@ -48,12 +48,13 @@ async function crawl() {
     await page.type('#password', conf.password);
     await page.click('.grid--cell.s-btn.s-btn__primary.js-accept-cookies.js-consent-banner-hide')
         .catch(e => console.log("Could not find 'Accept Cookies' button."));
+    await page.waitFor(2000);
 
     try {
         await Promise.all([
             page.click('#submit-button'),
             page.waitForNavigation({waitUntil: 'networkidle0'})
-        ]).then(async () => {
+        ]).then(() => {
             console.log(' -> success!');
         });
     } catch (error) {
