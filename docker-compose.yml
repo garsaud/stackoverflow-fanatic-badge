@@ -1,0 +1,10 @@
+version: "3.4"
+
+services:
+  app:
+    container_name: stackoverflow-fanatic-badge
+    build:
+      context: .
+    restart: unless-stopped
+    volumes:
+      - ./conf.json:/conf.json

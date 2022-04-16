@@ -12,18 +12,11 @@ progression.
 There are two ways to configure it.
 
 ### With a config file
-Create a `conf.json` file based on `conf.example.json` and mount it as a volume
-into the container:
-
-```bash
-docker run -d -v path/to/conf.json:/conf.json \
-    --name fanatic-bot \
-    garsaud/stackoverflow-fanatic-badge
-```
+Create a `conf.json` file based on `conf.example.json`.
 
 **Mailgun domain setup**: If you use an [EU domain](https://www.mailgun.com/blog/we-have-a-new-region-in-europe-yall/), please set `mailgun_eu_domain` to `y`.
 
-## Through the interactive mode
+### Through the interactive mode
 Build the config file answering questions:
 
 ```bash
@@ -34,11 +27,8 @@ docker run --rm -it -v ${PWD}/conf.json:/conf.json \
 
 ![](https://user-images.githubusercontent.com/3667366/54071538-1785ef00-426e-11e9-8d98-37b24778df0e.png)
 
-Then launch the bot:
+## Run
 
 ```bash
-docker run -d -v ${PWD}/conf.json:/conf.json \
-    --name fanatic-bot \
-    garsaud/stackoverflow-fanatic-badge
+docker-composer up -d
 ```
-
