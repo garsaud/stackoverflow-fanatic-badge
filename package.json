@@ -1,6 +1,6 @@
 {
   "name": "stackoverflow-fanatic-badge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An automated way to get the fanatic badge 🥇",
   "main": "app.js",
   "repository": "github:garsaud/stackoverflow-fanatic-badge",
