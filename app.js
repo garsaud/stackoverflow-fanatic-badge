@@ -46,16 +46,16 @@ async function crawl() {
 
 
     console.log('Filling login form with credentials');
+    await page.click('.js-accept-cookies')
+        .catch(e => console.log("Could not find 'Accept Cookies' button."));
     await page.type('#email', conf.login);
     await page.type('#password', conf.password);
-    await page.click('.grid--cell.s-btn.s-btn__primary.js-accept-cookies.js-consent-banner-hide')
-        .catch(e => console.log("Could not find 'Accept Cookies' button."));
     await page.waitFor(2000);
 
     try {
         await Promise.all([
             page.click('#submit-button'),
-            page.waitForNavigation({waitUntil: 'networkidle0'})
+            page.waitForNavigation()
         ]).then(() => {
             console.log(' -> success!');
         });
@@ -74,18 +74,18 @@ async function crawl() {
 
     try {
         console.log('Grabbing stats');
-        await page.waitForSelector(statsSelector = '#top-cards span.fs-caption', {timeout: 5000})
+        await page.waitForSelector(statsSelector = '.js-highlight-box-badges', {timeout: 5000})
             .then(() => {
                 console.log(' -> success!');
             });
 
         const stats = await page.evaluate(
-            statsSelector => document.querySelector(statsSelector).textContent,
+            statsSelector => document.querySelector(statsSelector).innerText,
             statsSelector
         );
 
         console.log(`Sending stats: ${stats}`);
-        notify(`Logged in for ${stats} consecutive days`)
+        notify(stats)
 
     } catch (e) {
         console.log(' -> failed. Could not fetch the stats. Please check days left manually.');
