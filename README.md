@@ -9,7 +9,7 @@ progression.
 - a mailgun account
 
 ## Setup
-There are three ways to configure it.
+There are two ways to configure it.
 
 ### With a config file
 Create a `conf.json` file based on `conf.example.json` and mount it as a volume
@@ -42,18 +42,3 @@ docker run -d -v ${PWD}/conf.json:/conf.json \
     garsaud/stackoverflow-fanatic-badge
 ```
 
-## With inline arguments
-If you don’t mind inline passwords, it is possible to configure and launch the bot in one command:
-
-```bash
-docker run -d -it --name fanatic-bot \
-    garsaud/stackoverflow-fanatic-badge configure-and-launch \
-    --login "your-stackoverflow-email@example.com" \
-    --password "your slackoverflow password" \
-    --mailgun_api_key "key-xxxxx" \
-    --mailgun_domain "xxxxx.mailgun.org" \
-    --mailgun_eu_domain "n" \
-    --from "postmaster@xxxxx.mailgun.org" \
-    --to "your-email@example.com" \
-    --subject "[CRON] StackOverflow fanatic badge report"
-```
