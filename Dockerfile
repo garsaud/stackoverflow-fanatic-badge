@@ -1,6 +1,6 @@
-FROM buildkite/puppeteer
+FROM node
 LABEL maintainer="cyril.garsaud@gmail.com"
 ADD package.json app.js configure /
+RUN apt update && apt install chromium -y
 RUN npm i && touch conf.json
-ENV PATH="${PATH}:/"
 CMD node app.js
